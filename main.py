@@ -23,7 +23,9 @@ def main():
 
     @router.add('/')
     def show_home():
-        ui.label('Featured Applications').classes('text-h4 q-px-md q-pt-md text-weight-bold text-primary')
+        ui.label('Featured Applications').classes('text-h5 q-px-md q-pt-md text-primary').style('font-weight: bold; color: #90caf9;')  # Subtle blue
+        ui.label('Our pick of amazing WebAR experiences for you to explore — no app required!').classes(
+            'text-body1 q-px-md').style('margin-bottom: 16px; color: #ffffff;')
         with ui.row().classes('q-gutter-sm q-px-md'):
             # Card 1
             with ui.card().classes('q-pa-sm').style('width: 31.9%'):
