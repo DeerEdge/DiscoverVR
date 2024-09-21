@@ -72,7 +72,7 @@ def main():
         with ui.column().classes('w-full q-pa-md'):
             ui.button('Back', on_click=lambda: router.open('/')).classes('q-mb-md')
             ui.html('''
-                <iframe src="https://deeredge.github.io/frame1/" width="100%" height="80%"></iframe>
+                <iframe src="https://deeredge.github.io/aframeSimulations/FreeFallObjects.html" width="100%" height="80%"></iframe>
             ''')
 
     @router.add('/experience2')
@@ -80,7 +80,7 @@ def main():
         with ui.column().classes('w-full q-pa-md'):
             ui.button('Back', on_click=lambda: router.open('/')).classes('q-mb-md')
             ui.html('''
-                <iframe src="https://deeredge.github.io/frame1/" width="100%" height="80%"></iframe>
+                <iframe src="https://deeredge.github.io/aframeSimulations/Particles.html" width="100%" height="80%"></iframe>
             ''')
 
     @router.add('/experience3')
@@ -88,7 +88,7 @@ def main():
         with ui.column().classes('w-full q-pa-md'):
             ui.button('Back', on_click=lambda: router.open('/')).classes('q-mb-md')
             ui.html('''
-                <iframe src="https://deeredge.github.io/frame1/" width="100%" height="80%"></iframe>
+                <iframe src="https://deeredge.github.io/aframeSimulations/Fractals.html" width="100%" height="80%"></iframe>
             ''')
 
     @router.add('/resources')
