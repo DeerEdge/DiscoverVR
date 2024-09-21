@@ -27,7 +27,7 @@ with ui.tab_panels(tabs, value='A').classes('w-full'):
             # Card 2: Embedding an HTML iframe and description
             with ui.card().classes('q-pa-md').style('width: 33%'):
                 ui.html('''
-                    <iframe src="https://yourcontent.com" width="100%" height="150px"></iframe>
+                    <iframe src="https://deeredge.github.io/frame1/" width="100%" height="150px"></iframe>
                 ''')
                 ui.label('Title 2').classes('text-h6 q-mt-md')
                 ui.label('This card contains embedded HTML content, like an iframe or another web app.')
