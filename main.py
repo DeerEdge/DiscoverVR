@@ -30,7 +30,7 @@ def main():
             # Card 1
             with ui.card().classes('q-pa-sm').style('width: 31.9%'):
                 ui.html('''
-                    <iframe src="https://deeredge.github.io/frame1/" width="425px" height="200px"></iframe>
+                    <iframe src="https://deeredge.github.io/aframeSimulations/FreeFallObjects.html" width="425px" height="200px"></iframe>
                 ''').style('padding: 8px;')
                 ui.label('Physics Free Fall Lab').classes('text-h6 q-pl-md').style('margin-top: -10px;')
                 ui.label(
@@ -43,7 +43,7 @@ def main():
             # Card 2
             with ui.card().classes('q-pa-sm').style('width: 31.9%'):
                 ui.html('''
-                    <iframe src="https://deeredge.github.io/frame1/" width="425px" height="200px"></iframe>
+                    <iframe src="https://deeredge.github.io/aframeSimulations/Particles.html" width="425px" height="200px"></iframe>
                 ''').style('padding: 8px;')
                 ui.label('Particle Lab').classes('text-h6 q-pl-md').style('margin-top: -10px;')
                 ui.label(
@@ -56,7 +56,7 @@ def main():
             # Card 3
             with ui.card().classes('q-pa-sm').style('width: 31.9%'):
                 ui.html('''
-                    <iframe src="https://deeredge.github.io/frame1/" width="425px" height="200px"></iframe>
+                    <iframe src="https://deeredge.github.io/aframeSimulations/Fractals.html" width="425px" height="200px"></iframe>
                 ''').style('padding: 8px;')
                 ui.label('Fractal Lab').classes('text-h6 q-pl-md').style('margin-top: -10px;')
                 ui.label(
