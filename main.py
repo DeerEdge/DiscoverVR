@@ -51,7 +51,7 @@ def main():
                     'users to interact with 3D objects and environments in real-time. With WebAR, businesses can create '
                     'immersive experiences accessible to anyone with a smartphone.'
                 ).classes('q-pl-md').style('margin-top: -10px;')
-                ui.button('', on_click=lambda: router.open('/experience2')).classes('q-pl-lg').style('width: calc(100% - 10px); display: block; margin-top: -5px; margin-left: 5px; margin-bottom: 5px')
+                ui.button('Enter Experience', on_click=lambda: router.open('/experience2')).classes('q-pl-lg').style('width: calc(100% - 10px); display: block; margin-top: -5px; margin-left: 5px; margin-bottom: 5px')
 
             # Card 3
             with ui.card().classes('q-pa-sm').style('width: 31.9%'):
@@ -72,7 +72,11 @@ def main():
         with ui.column().classes('w-full q-pa-md'):
             ui.button('Back', on_click=lambda: router.open('/')).classes('q-mb-md')
             ui.html('''
+<<<<<<< Updated upstream
                 <iframe src="https://deeredge.github.io/aframeSimulations/FreeFallObjects.html" width="100%" height="80%"></iframe>
+=======
+                <iframe src="https://deeredge.github.io/frame1/" width= "1420px" height="1000px"></iframe>
+>>>>>>> Stashed changes
             ''')
 
     @router.add('/experience2')
@@ -80,7 +84,11 @@ def main():
         with ui.column().classes('w-full q-pa-md'):
             ui.button('Back', on_click=lambda: router.open('/')).classes('q-mb-md')
             ui.html('''
+<<<<<<< Updated upstream
                 <iframe src="https://deeredge.github.io/aframeSimulations/Particles.html" width="100%" height="80%"></iframe>
+=======
+                <iframe src="https://deeredge.github.io/frame1/" width= "1420px" height="1000px"></iframe>
+>>>>>>> Stashed changes
             ''')
 
     @router.add('/experience3')
@@ -88,7 +96,11 @@ def main():
         with ui.column().classes('w-full q-pa-md'):
             ui.button('Back', on_click=lambda: router.open('/')).classes('q-mb-md')
             ui.html('''
+<<<<<<< Updated upstream
                 <iframe src="https://deeredge.github.io/aframeSimulations/Fractals.html" width="100%" height="80%"></iframe>
+=======
+                <iframe src="https://deeredge.github.io/frame1/" width= "1420px" height="1000px"></iframe>
+>>>>>>> Stashed changes
             ''')
 
     @router.add('/resources')
