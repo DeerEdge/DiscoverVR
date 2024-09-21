@@ -32,7 +32,7 @@ def main():
                 ui.html('''
                     <iframe src="https://deeredge.github.io/frame1/" width="425px" height="200px"></iframe>
                 ''').style('padding: 8px;')
-                ui.label('Experience WebAR').classes('text-h6 q-pl-md').style('margin-top: -10px;')
+                ui.label('Physics Free Fall Lab').classes('text-h6 q-pl-md').style('margin-top: -10px;')
                 ui.label(
                     'WebAR brings augmented reality directly to your browser, eliminating the need for apps. It allows '
                     'users to interact with 3D objects and environments in real-time. With WebAR, businesses can create '
@@ -45,20 +45,20 @@ def main():
                 ui.html('''
                     <iframe src="https://deeredge.github.io/frame1/" width="425px" height="200px"></iframe>
                 ''').style('padding: 8px;')
-                ui.label('Experience WebAR').classes('text-h6 q-pl-md').style('margin-top: -10px;')
+                ui.label('Particle Lab').classes('text-h6 q-pl-md').style('margin-top: -10px;')
                 ui.label(
                     'WebAR brings augmented reality directly to your browser, eliminating the need for apps. It allows '
                     'users to interact with 3D objects and environments in real-time. With WebAR, businesses can create '
                     'immersive experiences accessible to anyone with a smartphone.'
                 ).classes('q-pl-md').style('margin-top: -10px;')
-                ui.button('Enter Experience', on_click=lambda: router.open('/experience2')).classes('q-pl-lg').style('width: calc(100% - 10px); display: block; margin-top: -5px; margin-left: 5px; margin-bottom: 5px')
+                ui.button('', on_click=lambda: router.open('/experience2')).classes('q-pl-lg').style('width: calc(100% - 10px); display: block; margin-top: -5px; margin-left: 5px; margin-bottom: 5px')
 
             # Card 3
             with ui.card().classes('q-pa-sm').style('width: 31.9%'):
                 ui.html('''
                     <iframe src="https://deeredge.github.io/frame1/" width="425px" height="200px"></iframe>
                 ''').style('padding: 8px;')
-                ui.label('Experience WebAR').classes('text-h6 q-pl-md').style('margin-top: -10px;')
+                ui.label('Fractal Lab').classes('text-h6 q-pl-md').style('margin-top: -10px;')
                 ui.label(
                     'WebAR brings augmented reality directly to your browser, eliminating the need for apps. It allows '
                     'users to interact with 3D objects and environments in real-time. With WebAR, businesses can create '
