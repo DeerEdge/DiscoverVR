@@ -10,7 +10,7 @@ import shutil
 import asyncio
 
 client = OpenAI(
-    api_key="",
+    api_key="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",
     base_url="https://api.perplexity.ai"
 )
 
@@ -49,9 +49,10 @@ def main():
 
             with ui.column().classes('w-full items-center'):
                 with ui.column().classes('text-center mb-6'):
-                    ui.label('Learn Immersively.').classes('text-5xl font-bold italic text-white font-roboto mb-2')
-                    ui.label('     Curiosity has no limits using Quasar.').classes('text-xl text-white font-roboto').style('margin-left: 30px;')
+                    ui.label('Learn Immersively.').classes('text-5xl font-bold italic text-white font-roboto mb-2').style('margin-top: 60px;')
+                    ui.label('     Curiosity has no limits with Quasar.').classes('text-xl text-white font-roboto').style('margin-left: 30px;')
 
+        ui.separator().style(f"background-color: #90D5FF").style('margin-top: 60px;')
         with ui.row().classes('w-full justify-between'):
             # Left Card
             with ui.card().classes('w-[49%] bg-transparent'):
@@ -64,6 +65,7 @@ def main():
                 ui.html('''
                             <iframe src="https://deeredge.github.io/aframeSimulations/FreeFallObjects.html" width="670px" height="250px"></iframe>
                         ''').style('padding: 8px;')
+        ui.separator().style(f"background-color: #90D5FF").style('margin-top: 4px;')
 
         ui.label('Featured Applications').classes('text-h5 q-px-md q-pt-md text-primary').style(
             'font-weight: bold; color: #90caf9;')  # Subtle blue
@@ -137,9 +139,9 @@ def main():
 
     @router.add('/resources')
     def show_resources():
-        with ui.column().classes('w-full q-pa-md'):
-            ui.label('Explore & Learn').classes('text-h4 q-mb-md text-primary').tailwind.font_weight('extrabold')
-            ui.separator().style(f"background-color: #90D5FF")
+        with ui.column().classes('w-full'):
+            ui.label('Explore & Learn').classes('text-h4 q-mb-md text-primary')
+            ui.separator().style(f"background-color: #90D5FF").style('margin-top: -20px;')
             with ui.row():
                 ui.button('Art', on_click=lambda: art_info()).style('width: 481px')
                 ui.button('Math', on_click=lambda: math_info()).style('width: 481px')
@@ -341,6 +343,7 @@ def main():
     @router.add('/sandbox')
     def show_sandbox():
         ui.label('SandBox').classes('text-h4 q-mb-md text-primary')
+        ui.separator().style(f"background-color: #90D5FF").style('margin-top: -20px;')
         iframe = ui.html('''
                 <iframe id="aframe-scene" src="static/index.html" width="1420px" height="700px"></iframe>
             ''')
@@ -439,25 +442,20 @@ def main():
     with ui.header().classes(replace='row items-center justify-between q-py-md bg-dark').style(
             'border-bottom: 1px solid #333;'):
         with ui.row().classes('items-center'):
-            ui.icon('auto_stories').classes('q-px-md text-4xl text-primary')
-            ui.label('Quasar').classes('text-h4 text-weight-bold')
+            ui.icon('auto_stories').classes('q-px-md text-4xl text-primary').style('margin-left: 10px;')
+            ui.label('Quasar').classes('text-h4 text-weight-bold').style('margin-left: -20px;')
         with ui.tabs().classes('q-px-md').style('border-bottom: none;') as tabs:
             tab_home = ui.tab('Home').classes('text-h6')
-<<<<<<< Updated upstream
-            tab_resources = ui.tab('Resources').classes('text-h6')
-=======
+
             tab_explorelearn = ui.tab('Explore & Learn').classes('text-h6')
->>>>>>> Stashed changes
+
             tab_sandbox = ui.tab('sandbox').classes('text-h6')
 
     # Define click handlers for tabs
     tab_home.on('click', lambda: router.open('/'))
-<<<<<<< Updated upstream
-    tab_resources.on('click', lambda: router.open('/resources'))
-=======
+
     tab_explorelearn.on('click', lambda: router.open('/resources'))
 
->>>>>>> Stashed changes
     tab_sandbox.on('click', lambda: router.open('/sandbox'))
 
     # this places the content which should be displayed
