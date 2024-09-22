@@ -6,7 +6,7 @@
 
 # DiscoverVR: Learn Immersively. 
 
-![Main](https://media.giphy.com/media/wKoPDy4mp8Lr6IJ9ce/giphy.gif)
+<img src="README Images/Screen Shot 2024-09-22 at 8.11.32 AM.png"> <img src="README Images/Screen Shot 2024-09-22 at 8.04.01 AM.png">
 
 ## Introduction
 
