@@ -4,7 +4,7 @@
 <img src="https://img.shields.io/static/v1?label=Prompting&message=Perplexity/OpenAI&color=blue&style=plastic&logo=openai" />
 <img src="https://img.shields.io/static/v1?label=Web-AR&message=A-Frame&color=black&style=plastic&logo=aframe.io" />
 
-# DiscoverVR: Learn Immersively. Curiosity has no limits with DiscoverVR.
+# DiscoverVR: Learn Immersively. 
 
 ![Main](https://media.giphy.com/media/wKoPDy4mp8Lr6IJ9ce/giphy.gif)
 
