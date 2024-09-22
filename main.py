@@ -70,13 +70,14 @@ def main():
             # Card 2
             with ui.card().classes('q-pa-sm').style('width: 31.9%'):
                 ui.html('''
-                    <iframe src="https://deeredge.github.io/aframeSimulations/Particles.html" width="425px" height="200px"></iframe>
+                    <iframe src="https://deeredge.github.io/aframeSimulations/solarSystem.html" width="425px" height="200px"></iframe>
                 ''').style('padding: 8px;')
-                ui.label('Particle Lab').classes('text-h6 q-pl-md').style('margin-top: -10px;')
+                ui.label('Solar System Lab').classes('text-h6 q-pl-md').style('margin-top: -10px;')
                 ui.label(
-                    'WebAR brings augmented reality directly to your browser, eliminating the need for apps. It allows '
-                    'users to interact with 3D objects and environments in real-time. With WebAR, businesses can create '
-                    'immersive experiences accessible to anyone with a smartphone.'
+                    'Embark on an awe-inspiring journey through our Solar System in this immersive VR experience!'
+                    'Explore the stunning beauty of planets, moons, and asteroids, while learning about their unique '
+                    'characteristics and the dynamics of our cosmic neighborhood. Discover the wonders of space like'
+                    'never before!"'
                 ).classes('q-pl-md').style('margin-top: -10px;')
                 ui.button('Enter Experience', on_click=lambda: router.open('/experience2')).classes('q-pl-lg').style('width: calc(100% - 10px); display: block; margin-top: -5px; margin-left: 5px; margin-bottom: 5px')
 
@@ -107,7 +108,7 @@ def main():
         with ui.column().classes('w-full q-pa-md'):
             ui.button('Back', on_click=lambda: router.open('/')).classes('q-mb-md')
             ui.html('''
-                <iframe src="https://deeredge.github.io/aframeSimulations/Particles.html" width= "1420px" height="700px"></iframe>
+                <iframe src="https://deeredge.github.io/aframeSimulations/solarSystem.html" width= "1420px" height="700px"></iframe>
             ''')
 
     @router.add('/experience3')
@@ -121,7 +122,7 @@ def main():
     @router.add('/resources')
     def show_resources():
         with ui.column().classes('w-full q-pa-md'):
-            ui.label('Explore/Learn').classes('text-h4 q-mb-md text-primary').tailwind.font_weight('extrabold')
+            ui.label('Explore & Learn').classes('text-h4 q-mb-md text-primary').tailwind.font_weight('extrabold')
             ui.separator().style(f"background-color: #90D5FF")
             with ui.row():
                 ui.button('Art', on_click=lambda: art_info()).style('width: 481px')
@@ -426,12 +427,21 @@ def main():
             ui.label('Quasar').classes('text-h4 text-weight-bold')
         with ui.tabs().classes('q-px-md').style('border-bottom: none;') as tabs:
             tab_home = ui.tab('Home').classes('text-h6')
+<<<<<<< Updated upstream
             tab_resources = ui.tab('Resources').classes('text-h6')
+=======
+            tab_explorelearn = ui.tab('Explore & Learn').classes('text-h6')
+>>>>>>> Stashed changes
             tab_sandbox = ui.tab('sandbox').classes('text-h6')
 
     # Define click handlers for tabs
     tab_home.on('click', lambda: router.open('/'))
+<<<<<<< Updated upstream
     tab_resources.on('click', lambda: router.open('/resources'))
+=======
+    tab_explorelearn.on('click', lambda: router.open('/resources'))
+
+>>>>>>> Stashed changes
     tab_sandbox.on('click', lambda: router.open('/sandbox'))
 
     # this places the content which should be displayed
