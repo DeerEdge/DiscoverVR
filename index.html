@@ -1,40 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A-Frame Scene</title>
-    <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+  <title>Spinning Cube</title>
+  <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
 </head>
 <body>
-    <a-scene background="color: #FFFFFF">
-        <!-- Spinning Cubes -->
-        <a-entity id="cubes" position="0 0 -5">
-            <a-entity geometry="primitive: box; width: 1; height: 1; depth: 1" material="color: red" position="-4 0 0" rotation="0 0 0" scale="1 1 1" animation="property: rotation; to: 0 360 0; loop: true; dur: 5000"></a-entity>
-            <a-entity geometry="primitive: box; width: 1; height: 1; depth: 1" material="color: blue" position="-2 0 0" rotation="0 0 0" scale="1 1 1" animation="property: rotation; to: 0 360 0; loop: true; dur: 5000"></a-entity>
-            <a-entity geometry="primitive: box; width: 1; height: 1; depth: 1" material="color: green" position="0 0 0" rotation="0 0 0" scale="1 1 1" animation="property: rotation; to: 0 360 0; loop: true; dur: 5000"></a-entity>
-            <a-entity geometry="primitive: box; width: 1; height: 1; depth: 1" material="color: yellow" position="2 0 0" rotation="0 0 0" scale="1 1 1" animation="property: rotation; to: 0 360 0; loop: true; dur: 5000"></a-entity>
-            <a-entity geometry="primitive: box; width: 1; height: 1; depth: 1" material="color: purple" position="4 0 0" rotation="0 0 0" scale="1 1 1" animation="property: rotation; to: 0 360 0; loop: true; dur: 5000"></a-entity>
-            <a-entity geometry="primitive: box; width: 1; height: 1; depth: 1" material="color: orange" position="-3 1 0" rotation="0 0 0" scale="1 1 1" animation="property: rotation; to: 0 360 0; loop: true; dur: 5000"></a-entity>
-            <a-entity geometry="primitive: box; width: 1; height: 1; depth: 1" material="color: pink" position="-1 1 0" rotation="0 0 0" scale="1 1 1" animation="property: rotation; to: 0 360 0; loop: true; dur: 5000"></a-entity>
-            <a-entity geometry="primitive: box; width: 1; height: 1; depth: 1" material="color: brown" position="1 1 0" rotation="0 0 0" scale="1 1 1" animation="property: rotation; to: 0 360 0; loop: true; dur: 5000"></a-entity>
-            <a-entity geometry="primitive: box; width: 1; height: 1; depth: 1" material="color: gray" position="3 1 0" rotation="0 0 0" scale="1 1 1" animation="property: rotation; to: 0 360 0; loop: true; dur: 5000"></a-entity>
-            <a-entity geometry="primitive: box; width: 1; height: 1; depth: 1" material="color: black" position="0 2 0" rotation="0 0 0" scale="1 1 1" animation="property: rotation; to: 0 360 0; loop: true; dur: 5000"></a-entity>
-        </a-entity>
+  <a-scene background="color: #FFFFFF">
+    <!-- Add a default camera and light -->
+    <a-camera position="0 1.6 4"></a-camera>
+    <a-light type="ambient" color="#FFFFFF" intensity="0.5"></a-light>
+    <a-light type="point" color="#FFFFFF" intensity="0.5" position="0 2 1"></a-light>
 
-        <!-- Vertically Rotating Rectangular Prisms -->
-        <a-entity id="prisms" position="0 0 5">
-            <a-entity geometry="primitive: box; width: 2; height: 1; depth: 1" material="color: red" position="-3 0 0" rotation="0 0 0" scale="1 1 1" animation="property: rotation; to: 0 0 360; loop: true; dur: 5000"></a-entity>
-            <a-entity geometry="primitive: box; width: 2; height: 1; depth: 1" material="color: blue" position="-2 0 0" rotation="0 0 0" scale="1 1 1" animation="property: rotation; to: 0 0 360; loop: true; dur: 5000"></a-entity>
-            <a-entity geometry="primitive: box; width: 2; height: 1; depth: 1" material="color: green" position="-1 0 0" rotation="0 0 0" scale="1 1 1" animation="property: rotation; to: 0 0 360; loop: true; dur: 5000"></a-entity>
-            <a-entity geometry="primitive: box; width: 2; height: 1; depth: 1" material="color: yellow" position="0 0 0" rotation="0 0 0" scale="1 1 1" animation="property: rotation; to: 0 0 360; loop: true; dur: 5000"></a-entity>
-            <a-entity geometry="primitive: box; width: 2; height: 1; depth: 1" material="color: purple" position="1 0 0" rotation="0 0 0" scale="1 1 1" animation="property: rotation; to: 0 0 360; loop: true; dur: 5000"></a-entity>
-            <a-entity geometry="primitive: box; width: 2; height: 1; depth: 1" material="color: orange" position="2 0 0" rotation="0 0 0" scale="1 1 1" animation="property: rotation; to: 0 0 360; loop: true; dur: 5000"></a-entity>
-            <a-entity geometry="primitive: box; width: 2; height: 1; depth: 1" material="color: pink" position="3 0 0" rotation="0 0 0" scale="1 1 1" animation="property: rotation; to: 0 0 360; loop: true; dur: 5000"></a-entity>
-        </a-entity>
-
-        <!-- Default Camera -->
-        <a-camera position="0 1.6 4"></a-camera>
-    </a-scene>
+    <!-- Spinning Cube -->
+    <a-box color="#0095DD" position="0 1 0" rotation="0 0 0"
+           animation="property: rotation; to: 0 360 0; dur: 6000; loop: true; easing: linear"></a-box>
+  </a-scene>
 </body>
 </html>

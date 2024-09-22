@@ -11,7 +11,7 @@ import asyncio
 
 # API setup
 client = OpenAI(
-    api_key="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",
+    api_key="",
     base_url="https://api.perplexity.ai"
 )
 
@@ -51,20 +51,20 @@ def main():
             with ui.column().classes('w-full items-center'):
                 with ui.column().classes('text-center mb-6'):
                     ui.label('Learn Immersively.').classes('text-5xl font-bold italic text-white font-roboto mb-2').style('margin-top: 60px;')
-                    ui.label('     Curiosity has no limits with Quasar.').classes('text-xl text-white font-roboto').style('margin-left: 30px;')
+                    ui.label('     Curiosity has no limits with DiscoverVR.').classes('text-xl text-white font-roboto').style('margin-left: 30px;')
 
         ui.separator().style(f"background-color: #90D5FF").style('margin-top: 60px;')
         with ui.row().classes('w-full justify-between'):
             # Left Card
             with ui.card().classes('w-[49%] bg-transparent'):
                 ui.html('''
-                            <iframe src="https://deeredge.github.io/aframeSimulations/FreeFallObjects.html" width="670px" height="250px"></iframe>
+                            <iframe src="https://deeredge.github.io/aframeSimulations/DNAStrand.html" width="670px" height="250px"></iframe>
                         ''').style('padding: 8px;')
 
             # Right Card
             with ui.card().classes('w-[49%] bg-transparent'):
                 ui.html('''
-                            <iframe src="https://deeredge.github.io/aframeSimulations/FreeFallObjects.html" width="670px" height="250px"></iframe>
+                            <iframe src="https://deeredge.github.io/aframeSimulations/popArt.html" width="670px" height="250px"></iframe>
                         ''').style('padding: 8px;')
         ui.separator().style(f"background-color: #90D5FF").style('margin-top: 4px;')
 
@@ -76,20 +76,20 @@ def main():
             # Card 1
             with ui.card().classes('q-pa-sm').style('width: 31.9%'):
                 ui.html('''
-                    <iframe src="https://deeredge.github.io/aframeSimulations/FreeFallObjects.html" width="425px" height="200px"></iframe>
+                    <iframe src="https://deeredge.github.io/aframeSimulations/FreeFallObjects.html" width="470px" height="200px"></iframe>
                 ''').style('padding: 8px;')
                 ui.label('Biology Lab (Cell)').classes('text-h6 q-pl-md').style('margin-top: -10px;')
                 ui.label(
                     'Explore the intricate world of biology in our VR Lab, where you can dive into a fully immersive 3D'
                     'representation of a cell. Zoom in to see detailed structures like the nucleus, mitochondria, and'
-                    'more, as if you are inside the microscopic world of life itself!'
+                    'more, as if you are inside the microscopic world of life itself!                                  '
                 ).classes('q-pl-md').style('margin-top: -10px;')
                 ui.button('Enter Experience', on_click=lambda: router.open('/experience1')).classes('q-pl-lg').style('width: calc(100% - 10px); display: block; margin-top: -5px; margin-left: 5px; margin-bottom: 5px')
 
             # Card 2
             with ui.card().classes('q-pa-sm').style('width: 31.9%'):
                 ui.html('''
-                    <iframe src="https://deeredge.github.io/aframeSimulations/solarSystem.html" width="425px" height="200px"></iframe>
+                    <iframe src="https://deeredge.github.io/aframeSimulations/solarSystem.html" width="470px" height="200px"></iframe>
                 ''').style('padding: 8px;')
                 ui.label('Solar System Lab').classes('text-h6 q-pl-md').style('margin-top: -10px;')
                 ui.label(
@@ -103,7 +103,7 @@ def main():
             # Card 3
             with ui.card().classes('q-pa-sm').style('width: 31.9%'):
                 ui.html('''
-                    <iframe src="https://deeredge.github.io/aframeSimulations/3DShapes.html" width="425px" height="200px"></iframe>
+                    <iframe src="https://deeredge.github.io/aframeSimulations/3DShapes.html" width="470px" height="200px"></iframe>
                 ''').style('padding: 8px;')
                 ui.label('3D Shapes Lab').classes('text-h6 q-pl-md').style('margin-top: -10px;')
                 ui.label(
@@ -344,9 +344,9 @@ def main():
     @router.add('/sandbox')
     def show_sandbox():
         ui.label('SandBox').classes('text-h4 q-mb-md text-primary')
-        ui.separator().style(f"background-color: #90D5FF").style('margin-top: -20px;')
+        ui.separator().style(f"background-color: #90D5FF").style('margin-top: -20px; margin-bottom: 20px;')
         iframe = ui.html('''
-                <iframe id="aframe-scene" src="static/index.html" width="1420px" height="700px"></iframe>
+                <iframe id="aframe-scene" src="static/index.html" width="1620px" height="700px"></iframe>
             ''')
 
         # Add chat input and buttons in a card
@@ -444,7 +444,7 @@ def main():
             'border-bottom: 1px solid #333;'):
         with ui.row().classes('items-center'):
             ui.icon('auto_stories').classes('q-px-md text-4xl text-primary').style('margin-left: 10px;')
-            ui.label('Quasar').classes('text-h4 text-weight-bold').style('margin-left: -20px;')
+            ui.label('DiscoverVR').classes('text-h4 text-weight-bold').style('margin-left: -20px;')
         with ui.tabs().classes('q-px-md').style('border-bottom: none;') as tabs:
             tab_home = ui.tab('Home').classes('text-h6')
 
