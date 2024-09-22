@@ -6,9 +6,10 @@ from fastapi.staticfiles import StaticFiles
 from nicegui import ui, app
 from router import Router
 from openai import OpenAI
+import shutil
 
 client = OpenAI(
-    api_key="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",
+    api_key="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",
     base_url="https://api.perplexity.ai"
 )
 
@@ -165,14 +166,6 @@ def main():
     def astro_info():
         ui.label('Explore Astronomy Topics:').style('color: #ffffff')
 
-
-
-    @router.add('/about')
-    def show_about():
-        with ui.column().classes('w-full q-pa-md'):
-            ui.label('About Us').classes('text-h4 q-mb-md text-primary')
-            ui.label('Learn more about our company and mission.').classes('text-body1')
-
     @router.add('/sandbox')
     def show_sandbox():
         ui.label('SandBox').classes('text-h4 q-mb-md text-primary')
@@ -180,15 +173,19 @@ def main():
                 <iframe id="aframe-scene" src="static/index.html" width="1420px" height="700px"></iframe>
             ''')
 
-        # Add chat input and button in a card
+        # Add chat input and buttons in a card
         with ui.card().classes('w-3/4 mx-auto q-pa-md q-mt-md').style('background-color: #dae0e3;'):
             with ui.row().classes('w-full items-center relative'):
-                prompt_input = ui.input(placeholder='Enter your prompt here').props('outlined').classes(
-                    'w-full')  # Added right padding
+                prompt_input = ui.input(placeholder='Enter your idea here!                                    '
+                                                    '                                    Use the arrow button to start your creation, reload your model to render it!    ------>    ').props('outlined').classes(
+                    'w-full pr-24')
                 with ui.button(icon='arrow_forward', on_click=lambda: process_prompt(prompt_input.value, iframe)).props(
-                        ' round color=primary').classes('absolute right-2 top-1/2 -translate-y-1/2'):ui.tooltip('Generate')
+                        'round color=primary').classes('absolute right-12 top-1/2 -translate-y-1/2'):
+                    ui.tooltip('Generate')
+                with ui.button(icon='refresh', on_click=lambda: reload_iframe(iframe)).props(
+                        'round color=secondary').classes('absolute right-0 top-1/2 -translate-y-1/2'):
+                    ui.tooltip('Reload View')
 
-        # Apply custom styles
         ui.add_head_html('''
             <style>
                 .q-field__native {
@@ -207,52 +204,66 @@ def main():
     async def process_prompt(prompt: str, iframe):
         print(f"Processing prompt: {prompt}")
         new_html = await generate_aframe_scene(prompt)
-        print(f"Generated HTML: {new_html[:100]}...")  # Print first 100 characters
 
-        # Get the absolute path to the index.html file
-        file_path = os.path.abspath(os.path.join('static', '/static/index.html'))
-        print(f"Attempting to write to file: {file_path}")
+        static_file_path = os.path.abspath(os.path.join('static', 'index.html'))
+        root_file_path = os.path.abspath('index.html')
 
         try:
-            with open(file_path, 'w') as f:
+            # Write the new HTML to static/index.html
+            with open(static_file_path, 'w') as f:
                 f.write(new_html)
-            print("Successfully wrote new HTML to file")
+            print(f"Successfully wrote new HTML to {static_file_path}")
+
+            # Copy static/index.html to index.html in the root directory
+            shutil.copy2(static_file_path, root_file_path)
+            print(f"Copied {static_file_path} to {root_file_path}")
+
+            ui.notify('Scene generated. Click "Reload View" to see changes.')
         except Exception as e:
             print(f"Error writing to file: {e}")
+            ui.notify('Error generating scene', color='negative')
 
-        await ui.run_javascript(f'document.getElementById("aframe-scene").src = "/static/index.html?t={time.time()}"')
-        print("Triggered iframe reload")
+    def reload_iframe(iframe):
+        timestamp = int(time.time() * 3000)
+        ui.run_javascript(f'''
+            var iframe = document.getElementById('aframe-scene');
+            iframe.src = "/static/index.html?t={timestamp}";
+        ''')
+        ui.notify('View reloaded')
 
     async def generate_aframe_scene(prompt: str) -> str:
         try:
             messages = [
                 {"role": "system",
-                 "content": "You are an AI assistant that generates A-Frame scenes based on user prompts. Respond only with the complete HTML code for the A-Frame scene, including necessary scripts and basic HTML structure. Do not include any comments or explanations in your response, only the pure HTML code."},
-                {"role": "user", "content": f"Generate a clean, comment-free A-Frame scene for: {prompt}"}
+                 "content": "You are an AI assistant that generates simple and error-free A-Frame scenes based on user "
+                            "prompts. Respond only with the complete HTML code for the A-Frame scene, including necessary "
+                            "scripts, HTML, and physics mechanics if needed."},
+                {"role": "user", "content": f"Generate a clean A-Frame scene with white background with this prompt:: {prompt}"}
             ]
 
             print("Sending request to Perplexity API")
             response = client.chat.completions.create(
-                model="llama-3.1-sonar-small-128k-online",
+                model="llama-3.1-sonar-large-128k-online",
                 messages=messages,
             )
             print("Received response from Perplexity API")
 
             # Get the generated HTML
             generated_html = response.choices[0].message.content
+            pattern = r'(<!DOCTYPE.*?>.*</html>)'
+            match = re.search(pattern, generated_html, re.DOTALL | re.IGNORECASE)
 
-            # Remove any HTML comments
-            clean_html = re.sub(r'<!--.*?-->', '', generated_html, flags=re.DOTALL)
+            if match:
+                clean_html = match.group(1)
+            else:
+                clean_html = generated_html
 
-            # Remove any blank lines
-            clean_html = '\n'.join([line for line in clean_html.split('\n') if line.strip()])
-
-            print(f"Cleaned HTML: {clean_html[:100]}...")  # Print first 100 characters
             return clean_html
 
         except Exception as e:
             print(f"Error generating A-Frame scene: {e}")
             return "<html><body><a-scene><a-box position='0 1 -3' rotation='0 45 0' color='#4CC3D9'></a-box></a-scene></body></html>"
+
     with ui.header().classes(replace='row items-center justify-between q-py-md bg-dark').style(
             'border-bottom: 1px solid #333;'):
         with ui.row().classes('items-center'):
@@ -261,13 +272,11 @@ def main():
         with ui.tabs().classes('q-px-md').style('border-bottom: none;') as tabs:
             tab_home = ui.tab('Home').classes('text-h6')
             tab_resources = ui.tab('Resources').classes('text-h6')
-            tab_about = ui.tab('About').classes('text-h6')
             tab_sandbox = ui.tab('sandbox').classes('text-h6')
 
     # Define click handlers for tabs
     tab_home.on('click', lambda: router.open('/'))
     tab_resources.on('click', lambda: router.open('/resources'))
-    tab_about.on('click', lambda: router.open('/about'))
     tab_sandbox.on('click', lambda: router.open('/sandbox'))
 
     # this places the content which should be displayed
