@@ -1,7 +1,7 @@
 <img src="https://img.shields.io/static/v1?label=Baackend&message=Python&color=blue&style=plastic&logo=python" /> <img src="https://img.shields.io/static/v1?label=Frontend&message=Javascript&color=yellow&style=plastic&logo=javascript" />
 <img src="https://img.shields.io/static/v1?label=Web&message=FastAPI&color=green&style=plastic&logo=fastapi" />
 <img src="https://img.shields.io/static/v1?label=Web&message=NiceGui&color=orange&style=plastic" />
-<img src="https://img.shields.io/static/v1?label=Prompting%20API&message=Perplexity/OpenAI&color=blue&style=plastic&logo=openai" />
+<img src="https://img.shields.io/static/v1?label=Prompting&message=Perplexity/OpenAI&color=blue&style=plastic&logo=openai" />
 <img src="https://img.shields.io/static/v1?label=Web-AR&message=A-Frame&color=black&style=plastic&logo=aframe.io" />
 
 # DiscoverVR: Learn Immersively. Curiosity has no limits with Quasar.
@@ -41,3 +41,10 @@ Each topic includes detailed explanations and interactive 3D visualizations
 
 Allows users to generate custom A-Frame scenes using natural language prompts
 Powered by AI to create interactive 3D environments on-the-fly
+
+## Technical Stack
+- Backend: Python with FastAPI
+- Frontend: NiceGUI + JS
+- 3D Rendering: A-Frame 
+- AI Integration: OpenAI API + Perplexity
+- Styling: Custom CSS and Tailwind CSS classes
