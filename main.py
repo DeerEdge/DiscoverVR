@@ -8,6 +8,7 @@ from router import Router
 from openai import OpenAI
 import shutil
 
+# API setup
 client = OpenAI(
     api_key="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",
     base_url="https://api.perplexity.ai"
