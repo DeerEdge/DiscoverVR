@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>A-Frame Bouncing Ball Scene</title>
+    <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+    <script>
+      AFRAME.registerComponent('bouncy-ball', {
+        init: function () {
+          this.bouncing = false;
+          this.position = new THREE.Vector3();
+          this.velocity = new THREE.Vector3(0, 0, 0);
+          this.gravity = -9.8;
+          this.bounceFactor = 0.8;
+
+          this.el.addEventListener('click', this.onClick.bind(this));
+        },
+
+        onClick: function () {
+          if (!this.bouncing) {
+            this.bouncing = true;
+            this.velocity.y = 5; // Initial upward velocity
+          }
+        },
+
+        tick: function (time, timeDelta) {
+          if (this.bouncing) {
+            let deltaSeconds = timeDelta / 1000;
+
+            this.el.object3D.getWorldPosition(this.position);
+
+            // Update velocity and position
+            this.velocity.y += this.gravity * deltaSeconds;
+            this.position.y += this.velocity.y * deltaSeconds;
+
+            // Check for ground collision
+            if (this.position.y <= 0.5) { // 0.5 is the radius of the sphere
+              this.position.y = 0.5;
+              this.velocity.y *= -this.bounceFactor;
+
+              // Stop bouncing if velocity is very low
+              if (Math.abs(this.velocity.y) < 0.1) {
+                this.bouncing = false;
+                this.velocity.set(0, 0, 0);
+              }
+            }
+
+            this.el.object3D.position.copy(this.position);
+          }
+        }
+      });
+    </script>
+  </head>
+  <body>
+    <a-scene>
+      <!-- Bouncy Ball -->
+      <a-sphere position="0 0.5 -5" radius="0.5" color="#EF2D5E" bouncy-ball></a-sphere>
+
+      <!-- Ground -->
+      <a-plane position="0 0 -5" rotation="-90 0 0" width="10" height="10" color="#7BC8A4"></a-plane>
+
+      <!-- Camera -->
+      <a-camera>
+        <a-cursor></a-cursor>
+      </a-camera>
+
+      <!-- Sky -->
+      <a-sky color="#ECECEC"></a-sky>
+
+      <!-- Ambient Light -->
+      <a-light type="ambient" color="#888"></a-light>
+
+      <!-- Directional Light -->
+      <a-light type="directional" position="0 1 1" intensity="0.5"></a-light>
+    </a-scene>
+  </body>
+</html>

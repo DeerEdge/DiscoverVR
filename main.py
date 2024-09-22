@@ -1,5 +1,11 @@
-from nicegui import ui
+import os
+
+from fastapi.staticfiles import StaticFiles
+from nicegui import ui, app
 from router import Router
+
+current_dir = os.path.dirname(os.path.abspath(__file__))
+app.mount("/static", StaticFiles(directory=current_dir), name="static")
 
 ui.add_head_html('''
     <link href="https://unpkg.com/eva-icons@1.1.3/style/eva-icons.css" rel="stylesheet" />
@@ -130,16 +136,11 @@ def main():
 
     @router.add('/sandbox')
     def show_sandbox():
-        with ui.column().classes('w-full q-pa-md'):
-            ui.label('SandBox').classes('text-h4 q-mb-md text-primary')
-            ui.label('Play around with prompts!').classes('text-body1')
-        with ui.row().classes('q-gutter-sm q-px-md'):
-            # Card 1
-            with ui.card().classes('q-pa-sm').style('width: 31.9%'):
-                ui.html('''
-                    <iframe src="https://www.perplexity.ai/" width="425px" height="200px"></iframe>
-                ''').style('padding: 8px;')
-
+        ui.label('SandBox').classes('text-h4 q-mb-md text-primary')
+        ui.label('Play around with prompts!').classes('text-body1')
+        ui.html('''
+            <iframe src="/static/index.html" width="1420px" height="700px"></iframe>
+        ''')
 
     with ui.header().classes(replace='row items-center justify-between q-py-md bg-dark').style(
             'border-bottom: 1px solid #333;'):
