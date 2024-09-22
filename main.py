@@ -9,7 +9,7 @@ from openai import OpenAI
 import shutil
 
 client = OpenAI(
-    api_key="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",
+    api_key="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",
     base_url="https://api.perplexity.ai"
 )
 
@@ -427,21 +427,15 @@ def main():
             ui.label('Quasar').classes('text-h4 text-weight-bold')
         with ui.tabs().classes('q-px-md').style('border-bottom: none;') as tabs:
             tab_home = ui.tab('Home').classes('text-h6')
-<<<<<<< Updated upstream
-            tab_resources = ui.tab('Resources').classes('text-h6')
-=======
             tab_explorelearn = ui.tab('Explore & Learn').classes('text-h6')
->>>>>>> Stashed changes
+
             tab_sandbox = ui.tab('sandbox').classes('text-h6')
 
     # Define click handlers for tabs
     tab_home.on('click', lambda: router.open('/'))
-<<<<<<< Updated upstream
-    tab_resources.on('click', lambda: router.open('/resources'))
-=======
+
     tab_explorelearn.on('click', lambda: router.open('/resources'))
 
->>>>>>> Stashed changes
     tab_sandbox.on('click', lambda: router.open('/sandbox'))
 
     # this places the content which should be displayed
