@@ -112,19 +112,50 @@ def main():
     @router.add('/resources')
     def show_resources():
         with ui.column().classes('w-full q-pa-md'):
-            ui.label('Explore/Learn').classes('text-h4 q-mb-md text-primary')
+            ui.label('Explore/Learn').classes('text-h4 q-mb-md text-primary').tailwind.font_weight('extrabold')
             ui.separator().style(f"background-color: #90D5FF")
             with ui.row():
-                ui.button('Art', on_click=lambda: router.open('/art'))
-                ui.button('Math', on_click=lambda: router.open('/math'))
-                ui.button('Biology', on_click=lambda: router.open('/biology'))
-                ui.button('Astronomy', on_click=lambda: router.open('/astronomy'))
-            ui.separator().style(f"background-color: #90D5FF")
+                ui.button('Art', on_click=lambda: art_info()).style('width: 361px')
+                ui.button('Math', on_click=lambda: math_info()).style('width: 361px')
+                ui.button('Biology', on_click=lambda: bio_info()).style('width: 361px')
+                ui.button('Astronomy', on_click=lambda: astro_info()).style('width: 361px')
 
-    @router.add('/art')
-    def show_art():
-        with ui.column().classes('w-full q-pa-md'):
-            ui.label('Explore Art Topics').classes('text-h4 q-mb-md text-primary')
+    def art_info():
+        ui.add_head_html('''
+            <style type="text/tailwindcss">
+                h2 {font-size: 200%;}
+            </style>
+        ''')
+        ui.add_head_html('''
+            <style type="text/tailwindcss">
+                h3 {font-size: 175%;}
+            </style>
+        ''')
+        with ui.card().style('width: 692px'):
+            ui.html('<h3>Modern Art:</h3>')
+            ui.label(
+                'Modern Art is a movement that emerged in the late 19th century, characterized by a break from'
+                'traditional techniques and a focus on innovation and experimentation. It spans a wide range of'
+                'styles, including Impressionism, Cubism, Surrealism, and Abstract Expressionism, with artists like'
+                'Claude Monet, Pablo Picasso, and Jackson Pollock pushing boundaries. Modern art emphasizes'
+                'abstraction, non-representational forms, and the exploration of new ideas, reflecting the rapidly'
+                'changing social, technological, and cultural landscapes of the time. This movement laid the'
+                'foundation for contemporary art, continuing to influence artistic expression today.'
+            )
+        with ui.card().style('width: 784px'):
+            ui.html('''
+                        <iframe src="https://deeredge.github.io/aframeSimulations/modernArt.html" width="738px" height="200px"></iframe>
+                    ''').style('padding: 8px;')
+            ui.label('Modern Art Visual (Move around with WASD or Arrow Keys. Drag to look around)').classes('text-h6 q-pl-md').style('margin-top: -10px;')
+
+
+
+    def math_info():
+        ui.label('Explore Math Topics').style('color: #ffffff')
+    def bio_info():
+        ui.label('Explore Biology Topics').style('color: #ffffff')
+    def astro_info():
+        ui.label('Explore Astronomy Topics:').style('color: #ffffff')
 
 
 
