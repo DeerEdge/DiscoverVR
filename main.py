@@ -7,7 +7,6 @@ from nicegui import ui, app
 from router import Router
 from openai import OpenAI
 import shutil
-import asyncio
 
 # API setup
 client = OpenAI(
@@ -40,34 +39,17 @@ def main():
 
     @router.add('/')
     def show_home():
-        with ui.column().classes('w-full items-center'):
-            ui.add_head_html('''
-                    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,700;1,700&display=swap" rel="stylesheet">
-                    <style>
-                        body { background-color: #1a1a1a; }
-                    </style>
-                ''')
+        with ui.carousel(animated=True, arrows=True, navigation=True).props('height=300px'):
+            for i in range(0, 60, 3):
+                with ui.carousel_slide():
+                    with ui.row(wrap=False):
+                            ui.html('''
+                                                <iframe src="https://deeredge.github.io/aframeSimulations/Fractals.html" width="1468px" height="200px"></iframe>
+                                            ''').style('padding: 8px;')
 
-            with ui.column().classes('w-full items-center'):
-                with ui.column().classes('text-center mb-6'):
-                    ui.label('Learn Immersively.').classes('text-5xl font-bold italic text-white font-roboto mb-2').style('margin-top: 60px;')
-                    ui.label('     Curiosity has no limits with Quasar.').classes('text-xl text-white font-roboto').style('margin-left: 30px;')
-
-        ui.separator().style(f"background-color: #90D5FF").style('margin-top: 60px;')
-        with ui.row().classes('w-full justify-between'):
-            # Left Card
-            with ui.card().classes('w-[49%] bg-transparent'):
-                ui.html('''
-                            <iframe src="https://deeredge.github.io/aframeSimulations/FreeFallObjects.html" width="670px" height="250px"></iframe>
-                        ''').style('padding: 8px;')
-
-            # Right Card
-            with ui.card().classes('w-[49%] bg-transparent'):
-                ui.html('''
-                            <iframe src="https://deeredge.github.io/aframeSimulations/FreeFallObjects.html" width="670px" height="250px"></iframe>
-                        ''').style('padding: 8px;')
-        ui.separator().style(f"background-color: #90D5FF").style('margin-top: 4px;')
-
+                            ui.image('https://picsum.photos/id/32/270/180').classes('w-96')
+                            ui.image('https://picsum.photos/id/32/270/180').classes('w-96')
+                            ui.image('https://picsum.photos/id/32/270/180').classes('w-96')
         ui.label('Featured Applications').classes('text-h5 q-px-md q-pt-md text-primary').style(
             'font-weight: bold; color: #90caf9;')  # Subtle blue
         ui.label('Our pick of amazing WebAR experiences for you to explore — no app required!').classes(
@@ -140,9 +122,9 @@ def main():
 
     @router.add('/resources')
     def show_resources():
-        with ui.column().classes('w-full'):
-            ui.label('Explore & Learn').classes('text-h4 q-mb-md text-primary')
-            ui.separator().style(f"background-color: #90D5FF").style('margin-top: -20px;')
+        with ui.column().classes('w-full q-pa-md'):
+            ui.label('Explore & Learn').classes('text-h4 q-mb-md text-primary').tailwind.font_weight('extrabold')
+            ui.separator().style(f"background-color: #90D5FF")
             with ui.row():
                 ui.button('Art', on_click=lambda: art_info()).style('width: 481px')
                 ui.button('Math', on_click=lambda: math_info()).style('width: 481px')
@@ -344,7 +326,6 @@ def main():
     @router.add('/sandbox')
     def show_sandbox():
         ui.label('SandBox').classes('text-h4 q-mb-md text-primary')
-        ui.separator().style(f"background-color: #90D5FF").style('margin-top: -20px;')
         iframe = ui.html('''
                 <iframe id="aframe-scene" src="static/index.html" width="1420px" height="700px"></iframe>
             ''')
@@ -443,11 +424,10 @@ def main():
     with ui.header().classes(replace='row items-center justify-between q-py-md bg-dark').style(
             'border-bottom: 1px solid #333;'):
         with ui.row().classes('items-center'):
-            ui.icon('auto_stories').classes('q-px-md text-4xl text-primary').style('margin-left: 10px;')
-            ui.label('Quasar').classes('text-h4 text-weight-bold').style('margin-left: -20px;')
+            ui.icon('auto_stories').classes('q-px-md text-4xl text-primary')
+            ui.label('Quasar').classes('text-h4 text-weight-bold')
         with ui.tabs().classes('q-px-md').style('border-bottom: none;') as tabs:
             tab_home = ui.tab('Home').classes('text-h6')
-
             tab_explorelearn = ui.tab('Explore & Learn').classes('text-h6')
 
             tab_sandbox = ui.tab('sandbox').classes('text-h6')
