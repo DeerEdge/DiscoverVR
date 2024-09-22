@@ -148,6 +148,40 @@ def main():
                     ''').style('padding: 8px;')
             ui.label('Modern Art Visual (Move around with WASD or Arrow Keys. Drag to look around)').classes('text-h6 q-pl-md').style('margin-top: -10px;')
 
+        with ui.card().style('width: 692px'):
+            ui.html('<h3>Classical Art:</h3>')
+            ui.label(
+                'Classical Art refers to the artistic traditions of ancient Greece and Rome, emphasizing harmony,'
+                'proportion, and idealized beauty. Flourishing between the 5th century BCE and the fall of the'
+                'Roman Empire, it set the foundation for Western art through its focus on naturalistic'
+                'representation, balanced compositions, and mastery of the human form. Classical artists strove'
+                'for perfection, creating sculptures, paintings, and architecture that celebrated the human body'
+                'and intellect. This periods emphasis on order and symmetry heavily influenced the Renaissance'
+                'and Neoclassical movements, making it a lasting cornerstone of Western artistic heritage.'
+            )
+        with ui.card().style('width: 784px'):
+            ui.html('''
+                        <iframe src="https://deeredge.github.io/aframeSimulations/classicalArt.html" width="738px" height="200px"></iframe>
+                    ''').style('padding: 8px;')
+            ui.label('Classical Art Visual (Move around with WASD or Arrow Keys. Drag to look around)').classes('text-h6 q-pl-md').style('margin-top: -10px;')
+
+        with ui.card().style('width: 692px'):
+            ui.html('<h3>Pop Art:</h3>')
+            ui.label(
+                'Pop Art is an artistic movement that emerged in the 1950s and 1960s, primarily in the UK and the'
+                'U.S., characterized by its use of imagery from popular culture, mass media, and consumer goods.'
+                'It challenged traditional fine art by incorporating everyday objects and symbols, often drawing'
+                'from advertising, comic books, and celebrity culture. Artists like Andy Warhol and Roy Lichtenstein'
+                'used bright colors, bold outlines, and repetition to blur the boundaries between "high" art and'
+                'commercial art. Pop Art sought to reflect and critique modern consumerism, making art'
+                'accessible while commenting on societys obsession with mass production and materialism.'
+            )
+        with ui.card().style('width: 784px'):
+            ui.html('''
+                        <iframe src="https://deeredge.github.io/aframeSimulations/popArt.html" width="738px" height="200px"></iframe>
+                    ''').style('padding: 8px;')
+            ui.label('Pop Art Visual (Move around with WASD or Arrow Keys. Drag to look around)').classes('text-h6 q-pl-md').style('margin-top: -10px;')
+
 
 
     def math_info():
