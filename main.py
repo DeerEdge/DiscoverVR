@@ -7,9 +7,10 @@ from nicegui import ui, app
 from router import Router
 from openai import OpenAI
 import shutil
+import asyncio
 
 client = OpenAI(
-    api_key="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",
+    api_key="",
     base_url="https://api.perplexity.ai"
 )
 
@@ -38,17 +39,32 @@ def main():
 
     @router.add('/')
     def show_home():
-        with ui.carousel(animated=True, arrows=True, navigation=True).props('height=300px'):
-            for i in range(0, 60, 3):
-                with ui.carousel_slide():
-                    with ui.row(wrap=False):
-                            ui.html('''
-                                                <iframe src="https://deeredge.github.io/aframeSimulations/Fractals.html" width="1468px" height="200px"></iframe>
-                                            ''').style('padding: 8px;')
+        with ui.column().classes('w-full items-center'):
+            ui.add_head_html('''
+                    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,700;1,700&display=swap" rel="stylesheet">
+                    <style>
+                        body { background-color: #1a1a1a; }
+                    </style>
+                ''')
 
-                            ui.image('https://picsum.photos/id/32/270/180').classes('w-96')
-                            ui.image('https://picsum.photos/id/32/270/180').classes('w-96')
-                            ui.image('https://picsum.photos/id/32/270/180').classes('w-96')
+            with ui.column().classes('w-full items-center'):
+                with ui.column().classes('text-center mb-6'):
+                    ui.label('Learn Immersively.').classes('text-5xl font-bold italic text-white font-roboto mb-2')
+                    ui.label('     Curiosity has no limits using Quasar.').classes('text-xl text-white font-roboto').style('margin-left: 30px;')
+
+        with ui.row().classes('w-full justify-between'):
+            # Left Card
+            with ui.card().classes('w-[49%] bg-transparent'):
+                ui.html('''
+                            <iframe src="https://deeredge.github.io/aframeSimulations/FreeFallObjects.html" width="670px" height="250px"></iframe>
+                        ''').style('padding: 8px;')
+
+            # Right Card
+            with ui.card().classes('w-[49%] bg-transparent'):
+                ui.html('''
+                            <iframe src="https://deeredge.github.io/aframeSimulations/FreeFallObjects.html" width="670px" height="250px"></iframe>
+                        ''').style('padding: 8px;')
+
         ui.label('Featured Applications').classes('text-h5 q-px-md q-pt-md text-primary').style(
             'font-weight: bold; color: #90caf9;')  # Subtle blue
         ui.label('Our pick of amazing WebAR experiences for you to explore — no app required!').classes(
