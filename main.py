@@ -123,10 +123,10 @@ def main():
             ui.label('Explore/Learn').classes('text-h4 q-mb-md text-primary').tailwind.font_weight('extrabold')
             ui.separator().style(f"background-color: #90D5FF")
             with ui.row():
-                ui.button('Art', on_click=lambda: art_info()).style('width: 361px')
-                ui.button('Math', on_click=lambda: math_info()).style('width: 361px')
-                ui.button('Biology', on_click=lambda: bio_info()).style('width: 361px')
-                ui.button('Astronomy', on_click=lambda: astro_info()).style('width: 361px')
+                ui.button('Art', on_click=lambda: art_info()).style('width: 481px')
+                ui.button('Math', on_click=lambda: math_info()).style('width: 481px')
+                ui.button('Biology', on_click=lambda: bio_info()).style('width: 481px')
+
 
     def art_info():
         ui.add_head_html('''
@@ -193,11 +193,132 @@ def main():
 
 
     def math_info():
-        ui.label('Explore Math Topics').style('color: #ffffff')
+        ui.add_head_html('''
+                    <style type="text/tailwindcss">
+                        h2 {font-size: 200%;}
+                    </style>
+                ''')
+        ui.add_head_html('''
+                    <style type="text/tailwindcss">
+                        h3 {font-size: 175%;}
+                    </style>
+                ''')
+        with ui.card().style('width: 692px'):
+            ui.html('<h3>Properties of 2D Shapes:</h3>')
+            ui.label(
+                '2D shapes are flat, having only length and width, and are defined by their sides, angles, and'
+                'vertices. Key properties include the number of sides, the measure of internal angles, perimeter'
+                '(the total length of all sides), and area (the space enclosed by the shape). Common classifications'
+                'of 2D shapes include polygons, which have straight sides, and non-polygons, like circles.'
+                'Symmetry, tessellation, and congruence are also important properties, determining how shapes'
+                'relate to each other and fit together in space. These properties help define the geometry of each'
+                'shape.'
+            )
+        with ui.card().style('width: 784px'):
+            ui.html('''
+                                <iframe src="https://deeredge.github.io/aframeSimulations/properties2DShapes.html" width="738px" height="200px"></iframe>
+                            ''').style('padding: 8px;')
+            ui.label('2D Shapes Visual (Move around with WASD or Arrow Keys. Drag to look around)').classes(
+                'text-h6 q-pl-md').style('margin-top: -10px;')
+
+        with ui.card().style('width: 692px'):
+            ui.html('<h3>Properties of 3D Shapes:</h3>')
+            ui.label(
+                '3D shapes, also known as solid shapes, have three dimensions: length, width, and height (or'
+                'depth). Their key properties include faces (flat or curved surfaces), edges (where two faces'
+                'meet), and vertices (corners where edges meet). Volume measures the space inside the shape,'
+                'while surface area is the total area of all the faces. 3D shapes can be classified into various types,'
+                'such as polyhedra (with flat faces) and curved solids like spheres and cylinders. Understanding'
+                'these properties is essential in studying how objects occupy space and relate to their'
+                'surroundings.'
+            )
+        with ui.card().style('width: 784px'):
+            ui.html('''
+                                <iframe src="https://deeredge.github.io/aframeSimulations/3DShapes.html" width="738px" height="200px"></iframe>
+                            ''').style('padding: 8px;')
+            ui.label('3D Shapes Visual (Move around with WASD or Arrow Keys. Drag to look around)').classes(
+                'text-h6 q-pl-md').style('margin-top: -10px;')
+
+        with ui.card().style('width: 692px'):
+            ui.html('<h3>Right Triangle Properties:</h3>')
+            ui.label(
+                'A 30-60-90 triangle is a right triangle with angles of 30°, 60°, and 90°, characterized by a side'
+                'ratio of 1:√3:2, where the shortest side is opposite the 30° angle. In contrast, a 45-45-90 triangle'
+                'has two 45° angles and one 90° angle, with sides in a 1:1:√2 ratio, where the legs are equal in'
+                'length and the hypotenuse is √2 times the length of each leg. These triangles are essential in'
+                'geometry for their predictable side relationships.'
+            )
+        with ui.card().style('width: 784px'):
+            ui.html('''
+                                <iframe src="https://deeredge.github.io/aframeSimulations/rightTriangleProperties.html" width="738px" height="200px"></iframe>
+                            ''').style('padding: 8px;')
+            ui.label('Right Triangle Visual (Move around with WASD or Arrow Keys. Drag to look around)').classes(
+                'text-h6 q-pl-md').style('margin-top: -10px;')
+
+        with ui.card().style('width: 692px'):
+            ui.html('<h3>Unit Circle Properties:</h3>')
+            ui.label(
+                'The unit circle is a circle with a radius of one, centered at the origin of a coordinate plane. It'
+                'serves as a fundamental tool in trigonometry, where the coordinates of any point on the circle'
+                'correspond to the cosine and sine of the angle formed with the positive x-axis. The unit circle'
+                'allows for easy visualization of the relationships between angles and their sine and cosine values,'
+                'helping to define trigonometric functions for all real numbers. It also plays a crucial role in'
+                'understanding periodicity, symmetry, and the behavior of trigonometric graphs.'
+            )
+        with ui.card().style('width: 784px'):
+            ui.html('''
+                                <iframe src="https://deeredge.github.io/aframeSimulations/unitCircleProperties.html" width="738px" height="200px"></iframe>
+                            ''').style('padding: 8px;')
+            ui.label('Unit Circle Visual (Move around with WASD or Arrow Keys. Drag to look around)').classes(
+                'text-h6 q-pl-md').style('margin-top: -10px;')
     def bio_info():
-        ui.label('Explore Biology Topics').style('color: #ffffff')
-    def astro_info():
-        ui.label('Explore Astronomy Topics:').style('color: #ffffff')
+        ui.add_head_html('''
+                            <style type="text/tailwindcss">
+                                h2 {font-size: 200%;}
+                            </style>
+                        ''')
+        ui.add_head_html('''
+                            <style type="text/tailwindcss">
+                                h3 {font-size: 175%;}
+                            </style>
+                        ''')
+        with ui.card().style('width: 692px'):
+            ui.html('<h3>Plant Cell:</h3>')
+            ui.label(
+                'A plant cell is characterized by its rigid cell wall, which provides structure and support, as well as a'
+                'large central vacuole that stores water, nutrients, and waste products. Plant cells contain'
+                'chloroplasts, the organelles responsible for photosynthesis, allowing them to convert sunlight into'
+                'energy. Additionally, they have a nucleus, which houses genetic material, and various organelles'
+                'such as mitochondria, endoplasmic reticulum, and Golgi apparatus, essential for cellular functions.'
+                'The presence of plastids and a unique arrangement of cytoplasm contribute to the overall'
+                'functionality and efficiency of plant cells.'
+            )
+        with ui.card().style('width: 784px'):
+            ui.html('''
+                                        <iframe src="https://deeredge.github.io/aframeSimulations/plantCell.html" width="738px" height="200px"></iframe>
+                                    ''').style('padding: 8px;')
+            ui.label('Plant Cell Visual (Move around with WASD or Arrow Keys. Drag to look around)').classes(
+                'text-h6 q-pl-md').style('margin-top: -10px;')
+
+
+        with ui.card().style('width: 692px'):
+            ui.html('<h3>DNA Strand:</h3>')
+            ui.label(
+                'DNA (deoxyribonucleic acid) is a double-stranded helical molecule that carries the genetic'
+                'instructions essential for the growth, development, and functioning of all living organisms.'
+                'Composed of nucleotide units, each containing a sugar, phosphate group, and a nitrogenous base'
+                '(adenine, thymine, cytosine, or guanine), DNA sequences encode genes that determine traits. The'
+                'specific pairing of bases—adenine with thymine and cytosine with guanine—facilitates accurate'
+                'replication during cell division. DNA is organized into structures called chromosomes within the'
+                'cell nucleus, playing a crucial role in heredity and the transmission of genetic information.'
+            )
+        with ui.card().style('width: 784px'):
+            ui.html('''
+                                                <iframe src="https://deeredge.github.io/aframeSimulations/DNAStrand.html" width="738px" height="200px"></iframe>
+                                            ''').style('padding: 8px;')
+            ui.label('DNA Strand Visual (Move around with WASD or Arrow Keys. Drag to look around)').classes(
+                'text-h6 q-pl-md').style('margin-top: -10px;')
+
 
 
 
